@@ -1,0 +1,43 @@
+.resumo-periodo {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--espaco-md);
+  margin: 0 0 var(--espaco-lg);
+}
+
+.resumo-periodo dt {
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.resumo-periodo dd {
+  margin: 0.25rem 0 0;
+  font-weight: var(--peso-medio);
+}
+
+.progresso-relatorio {
+  display: grid;
+  gap: 0.45rem;
+  margin: var(--espaco-lg) 0;
+}
+
+.progresso-relatorio progress {
+  width: 100%;
+  height: 0.7rem;
+}
+
+#nome-mobilizador[readonly] {
+  background: var(--cor-fundo);
+}
+
+@media (max-width: 960px) {
+  .resumo-periodo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .resumo-periodo {
+    grid-template-columns: 1fr;
+  }
+}

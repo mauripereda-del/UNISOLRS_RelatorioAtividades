@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Relatório Mensal — UNISOL RS Relatório de Atividades" />
+    <title>Relatório Mensal — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/historico.css" />
+    <link rel="stylesheet" href="../css/relatorio-mensal.css" />
+  </head>
+  <body class="app-interno">
+    <a class="skip-link" href="#conteudo-relatorio-mensal">Ir para o conteúdo</a>
+    <div id="menu-overlay" class="menu-overlay" hidden></div>
+
+    <div class="layout">
+      <aside id="menu-lateral" class="menu-lateral">
+        <div class="menu-lateral__marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+
+        <nav class="menu-lateral__nav" aria-label="Principal">
+          <ul id="menu-principal" class="menu-lateral__lista">
+            <li>
+              <a href="./dashboard.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="./nova-atividade.html" data-modulo="novaAtividade">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Nova Atividade
+              </a>
+            </li>
+            <li>
+              <a href="./historico.html" data-modulo="historico">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 7h8M8 12h8M8 17h5M5 4h14v16H5z" />
+                </svg>
+                Histórico de Atividades
+              </a>
+            </li>
+            <li>
+              <a href="./relatorio-mensal.html" data-modulo="relatorioMensal" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4h8l4 4v12H7zM15 4v4h4M9 13h6M9 17h4" />
+                </svg>
+                Relatório Mensal
+              </a>
+            </li>
+            <li id="item-reaberturas" hidden>
+              <a href="./solicitacoes-reabertura.html" data-modulo="solicitacoesReabertura">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5h8M8 9h8M8 13h5M6 3h12v18H6z" />
+                </svg>
+                Solicitações de Reabertura
+              </a>
+            </li>
+            <li id="item-usuarios" hidden>
+              <a href="./usuarios.html" data-modulo="usuarios">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M12 11a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 11zM17 11a3 3 0 1 0-1-5.8M21 19v-1a4 4 0 0 0-3-3.87" />
+                </svg>
+                Usuários
+              </a>
+            </li>
+            <li>
+              <a href="./meu-perfil.html" data-modulo="meuPerfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM5 20a7 7 0 0 1 14 0" />
+                </svg>
+                Meu Perfil
+              </a>
+            </li>
+            <li>
+              <button type="button" data-acao="sair">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 7V5H5v14h5v-2M10 12h9M16 9l3 3-3 3" />
+                </svg>
+                Sair
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="menu-lateral__perfil" aria-label="Usuário autenticado">
+          <p class="usuario-resumo__nome" data-campo="nome">—</p>
+          <p class="usuario-resumo__email" data-campo="email">—</p>
+          <p class="usuario-resumo__perfil" data-campo="perfil">—</p>
+          <button class="botao botao--texto" type="button" data-modulo="meuPerfil">Meu Perfil</button>
+        </section>
+      </aside>
+
+      <div class="layout__principal">
+        <header class="cabecalho">
+          <button
+            id="botao-menu"
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-lateral"
+          >
+            Menu
+          </button>
+
+          <div class="cabecalho__identidade">
+            <strong>UNISOL RS</strong>
+            <span>Relatório de Atividades</span>
+          </div>
+
+          <div class="cabecalho__acoes">
+            <div class="usuario-resumo">
+              <strong data-campo="nome">—</strong>
+              <span data-campo="perfil">—</span>
+            </div>
+            <span id="selo-perfil" class="selo"></span>
+            <button class="botao botao--secundario botao--compacto" type="button" data-acao="sair">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <main id="conteudo-relatorio-mensal" class="conteudo">
+          <div id="aviso-configuracao" class="alerta alerta--aviso" hidden></div>
+          <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+          <section class="saudacao">
+            <div>
+              <h1>Relatório Mensal</h1>
+              <p>Gere o relatório consolidado das suas atividades em um determinado mês.</p>
+            </div>
+          </section>
+
+          <form id="form-relatorio-mensal" class="painel filtros" aria-labelledby="titulo-periodo">
+            <h2 id="titulo-periodo">Período</h2>
+            <div class="filtros__grade">
+              <div id="campo-mobilizador" class="campo" hidden>
+                <label for="filtro-mobilizador">Mobilizador</label>
+                <select id="filtro-mobilizador" name="mobilizador">
+                  <option value="">Selecione o mobilizador</option>
+                </select>
+              </div>
+              <div id="campo-nome-mobilizador" class="campo">
+                <label for="nome-mobilizador">Mobilizador</label>
+                <input id="nome-mobilizador" type="text" readonly />
+              </div>
+              <div class="campo">
+                <label for="filtro-mes">Mês</label>
+                <select id="filtro-mes" name="mes" required></select>
+              </div>
+              <div class="campo">
+                <label for="filtro-ano">Ano</label>
+                <select id="filtro-ano" name="ano" required></select>
+              </div>
+            </div>
+            <div class="filtros__acoes">
+              <button id="botao-consultar" class="botao botao--primario" type="submit">
+                Consultar Atividades
+              </button>
+            </div>
+          </form>
+
+          <section id="previa-relatorio" class="painel" aria-labelledby="titulo-previa" hidden>
+            <div class="painel__cabecalho historico-cabecalho">
+              <h2 id="titulo-previa">Prévia do período</h2>
+            </div>
+
+            <dl class="resumo-periodo">
+              <div>
+                <dt>Mobilizador</dt>
+                <dd id="previa-mobilizador">—</dd>
+              </div>
+              <div>
+                <dt>Período</dt>
+                <dd id="previa-periodo">—</dd>
+              </div>
+              <div>
+                <dt>Atividades concluídas</dt>
+                <dd id="previa-concluidas">0</dd>
+              </div>
+              <div>
+                <dt>Rascunhos</dt>
+                <dd id="previa-rascunhos">0</dd>
+              </div>
+              <div>
+                <dt>Canceladas</dt>
+                <dd id="previa-canceladas">0</dd>
+              </div>
+            </dl>
+
+            <p id="nota-rascunhos" class="campo-ajuda" hidden></p>
+            <p id="nota-canceladas" class="campo-ajuda" hidden></p>
+
+            <div id="relatorio-vazio" class="estado-vazio" hidden aria-hidden="true">
+              <p>
+                <strong
+                  >Nenhuma atividade concluída foi encontrada para este mobilizador no período
+                  selecionado.</strong
+                >
+              </p>
+            </div>
+
+            <div id="tabela-previa-envoltorio" class="tabela-envoltorio historico-tabela">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Situação</th>
+                    <th>Resumo</th>
+                    <th>Fotografias</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody id="corpo-previa"></tbody>
+              </table>
+            </div>
+
+            <div id="cards-previa" class="historico-cards"></div>
+
+            <div id="progresso-relatorio" class="progresso-relatorio" hidden>
+              <p id="progresso-texto" aria-live="polite">Preparando relatório...</p>
+              <progress id="progresso-barra" max="100" value="0"></progress>
+            </div>
+
+            <div class="filtros__acoes">
+              <button id="botao-gerar" class="botao botao--destaque" type="button" disabled>
+                Gerar Relatório Mensal Word
+              </button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="dialogo-modulo" class="dialogo">
+      <h2>Módulo em desenvolvimento</h2>
+      <p id="dialogo-modulo-texto">Este módulo será disponibilizado em uma próxima etapa.</p>
+      <button id="dialogo-modulo-fechar" class="botao botao--primario" type="button">Entendi</button>
+    </dialog>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/relatorio-mensal.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+# Configuração mínima das Edge Functions.
+# O projeto Supabase continua sendo gerenciado pelo painel.
+# Não coloca service_role neste arquivo.
+
+[functions.admin-usuarios]
+verify_jwt = true

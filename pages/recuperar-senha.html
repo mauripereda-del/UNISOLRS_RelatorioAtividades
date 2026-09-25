@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recuperação de senha — UNISOL RS Relatório de Atividades" />
+    <title>Recuperar senha — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body class="app-auth">
+    <a class="skip-link" href="#conteudo-recuperar">Ir para o conteúdo</a>
+
+    <main id="conteudo-recuperar" class="cartao">
+      <header class="cartao__cabecalho">
+        <div class="marca login-marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+        <h1 class="cartao__titulo">Recuperar senha</h1>
+        <p class="cartao__descricao">
+          Informe o e-mail da sua conta. Se ele estiver cadastrado, enviaremos um link de
+          recuperação.
+        </p>
+      </header>
+
+      <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+      <form id="form-recuperar" novalidate>
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
+            placeholder="seu.email@exemplo.com"
+          />
+        </div>
+
+        <div class="acoes-formulario">
+          <button id="botao-enviar" class="botao botao--primario" type="submit">
+            Enviar link de recuperação
+          </button>
+          <div class="login-links">
+            <a class="botao botao--texto" href="../index.html">Voltar para o login</a>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/recuperar-senha.js"></script>
+  </body>
+</html>

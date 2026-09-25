@@ -1,5 +1,8 @@
 .git
 README.md
 sql
+supabase
 .env
-.env.example
+.env.*
+!.env.example
+js/env.js

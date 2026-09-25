@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="titulo-logo">
+  <title id="titulo-logo">UNISOL RS  marca provisória</title>
+  <rect width="96" height="96" rx="20" fill="#1B4D6E"/>
+  <circle cx="48" cy="48" r="28" fill="none" stroke="#F4F6F8" stroke-width="4"/>
+  <path d="M34 58 V38 L48 52 L62 38 V58" fill="none" stroke="#2E7D4F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solicitações de Reabertura — UNISOL RS Relatório de Atividades" />
+    <title>Solicitações de Reabertura — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/historico.css" />
+    <link rel="stylesheet" href="../css/reabertura.css" />
+  </head>
+  <body class="app-interno">
+    <a class="skip-link" href="#conteudo-reaberturas">Ir para o conteúdo</a>
+    <div id="menu-overlay" class="menu-overlay" hidden></div>
+
+    <div class="layout">
+      <aside id="menu-lateral" class="menu-lateral">
+        <div class="menu-lateral__marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+
+        <nav class="menu-lateral__nav" aria-label="Principal">
+          <ul id="menu-principal" class="menu-lateral__lista">
+            <li>
+              <a href="./dashboard.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="./nova-atividade.html" data-modulo="novaAtividade">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Nova Atividade
+              </a>
+            </li>
+            <li>
+              <a href="./historico.html" data-modulo="historico">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 7h8M8 12h8M8 17h5M5 4h14v16H5z" />
+                </svg>
+                Histórico de Atividades
+              </a>
+            </li>
+            <li>
+              <a href="./relatorio-mensal.html" data-modulo="relatorioMensal">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4h8l4 4v12H7zM15 4v4h4M9 13h6M9 17h4" />
+                </svg>
+                Relatório Mensal
+              </a>
+            </li>
+            <li id="item-reaberturas" hidden>
+              <a href="./solicitacoes-reabertura.html" data-modulo="solicitacoesReabertura" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5h8M8 9h8M8 13h5M6 3h12v18H6z" />
+                </svg>
+                Solicitações de Reabertura
+              </a>
+            </li>
+            <li id="item-usuarios" hidden>
+              <a href="./usuarios.html" data-modulo="usuarios">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M12 11a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 11zM17 11a3 3 0 1 0-1-5.8M21 19v-1a4 4 0 0 0-3-3.87" />
+                </svg>
+                Usuários
+              </a>
+            </li>
+            <li>
+              <a href="./meu-perfil.html" data-modulo="meuPerfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM5 20a7 7 0 0 1 14 0" />
+                </svg>
+                Meu Perfil
+              </a>
+            </li>
+            <li>
+              <button type="button" data-acao="sair">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 7V5H5v14h5v-2M10 12h9M16 9l3 3-3 3" />
+                </svg>
+                Sair
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="menu-lateral__perfil" aria-label="Usuário autenticado">
+          <p class="usuario-resumo__nome" data-campo="nome">—</p>
+          <p class="usuario-resumo__email" data-campo="email">—</p>
+          <p class="usuario-resumo__perfil" data-campo="perfil">—</p>
+          <button class="botao botao--texto" type="button" data-modulo="meuPerfil">Meu Perfil</button>
+        </section>
+      </aside>
+
+      <div class="layout__principal">
+        <header class="cabecalho">
+          <button
+            id="botao-menu"
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-lateral"
+          >
+            Menu
+          </button>
+          <div class="cabecalho__identidade">
+            <strong>UNISOL RS</strong>
+            <span>Relatório de Atividades</span>
+          </div>
+          <div class="cabecalho__acoes">
+            <div class="usuario-resumo">
+              <strong data-campo="nome">—</strong>
+              <span data-campo="perfil">—</span>
+            </div>
+            <span id="selo-perfil" class="selo"></span>
+            <button class="botao botao--secundario botao--compacto" type="button" data-acao="sair">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <main id="conteudo-reaberturas" class="conteudo">
+          <div id="aviso-configuracao" class="alerta alerta--aviso" hidden></div>
+          <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+          <section class="saudacao">
+            <div>
+              <h1>Solicitações de Reabertura</h1>
+              <p>Analise solicitações enviadas pelos mobilizadores.</p>
+            </div>
+          </section>
+
+          <form id="form-filtros" class="painel filtros" aria-labelledby="titulo-filtros">
+            <h2 id="titulo-filtros">Filtros</h2>
+            <div class="filtros__grade">
+              <div class="campo">
+                <label for="filtro-status">Status</label>
+                <select id="filtro-status" name="status">
+                  <option value="PENDENTE">Pendentes</option>
+                  <option value="">Todas</option>
+                  <option value="APROVADA">Aprovadas</option>
+                  <option value="RECUSADA">Recusadas</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="filtro-mobilizador">Mobilizador</label>
+                <select id="filtro-mobilizador" name="mobilizador">
+                  <option value="">Todos</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="filtro-inicio">Data inicial</label>
+                <input id="filtro-inicio" type="date" />
+              </div>
+              <div class="campo">
+                <label for="filtro-fim">Data final</label>
+                <input id="filtro-fim" type="date" />
+              </div>
+            </div>
+            <div class="filtros__acoes">
+              <button id="botao-filtrar" class="botao botao--primario" type="submit">Filtrar</button>
+              <button id="botao-limpar" class="botao botao--secundario" type="button">Limpar filtros</button>
+            </div>
+          </form>
+
+          <section class="painel" aria-labelledby="titulo-resultados">
+            <div class="painel__cabecalho historico-cabecalho">
+              <h2 id="titulo-resultados">Resultados</h2>
+              <p id="resumo-pagina" class="historico-resumo" aria-live="polite"></p>
+            </div>
+            <p id="carregando-solicitacoes" class="historico-carregando" hidden>Carregando solicitações...</p>
+            <div id="lista-vazia" class="estado-vazio" hidden aria-hidden="true">
+              <p><strong>Nenhuma solicitação encontrada.</strong></p>
+              <p>Altere os filtros para ver outros resultados.</p>
+            </div>
+            <div id="tabela-solicitacoes-envoltorio" class="tabela-envoltorio historico-tabela" hidden>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Data da solicitação</th>
+                    <th>Mobilizador</th>
+                    <th>Data da atividade</th>
+                    <th>Atividade</th>
+                    <th>Motivo</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="corpo-solicitacoes"></tbody>
+              </table>
+            </div>
+            <div id="cards-solicitacoes" class="historico-cards" hidden></div>
+            <div id="paginacao" class="paginacao" hidden>
+              <button id="pagina-anterior" class="botao botao--secundario" type="button">Anterior</button>
+              <button id="pagina-proxima" class="botao botao--secundario" type="button">Próxima</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="dialogo-aprovar" class="dialogo dialogo-reabertura" aria-labelledby="titulo-aprovar">
+      <h2 id="titulo-aprovar">Aprovar reabertura</h2>
+      <p><strong>Mobilizador:</strong> <span id="aprovar-mobilizador">—</span></p>
+      <p><strong>Atividade:</strong> <span id="aprovar-resumo">—</span></p>
+      <p><strong>Motivo:</strong> <span id="aprovar-motivo">—</span></p>
+      <p class="aviso-aprovacao">
+        A atividade retornará ao status Rascunho e poderá ser editada novamente pelo mobilizador.
+      </p>
+      <div class="campo">
+        <label for="observacao-aprovar">Observação do administrador (opcional)</label>
+        <textarea id="observacao-aprovar" rows="4" maxlength="1000"></textarea>
+      </div>
+      <div class="filtros__acoes">
+        <button id="confirmar-aprovar" class="botao botao--destaque" type="button">Confirmar Aprovação</button>
+        <button id="cancelar-aprovar" class="botao botao--secundario" type="button">Cancelar</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialogo-recusar" class="dialogo dialogo-reabertura" aria-labelledby="titulo-recusar">
+      <h2 id="titulo-recusar">Recusar reabertura</h2>
+      <div class="campo">
+        <label for="recusar-motivo">Motivo da recusa</label>
+        <textarea id="recusar-motivo" rows="5" maxlength="1000"></textarea>
+        <p id="contador-recusa" class="contador">0 / 1000</p>
+      </div>
+      <div class="filtros__acoes">
+        <button id="confirmar-recusar" class="botao botao--destaque" type="button">Confirmar Recusa</button>
+        <button id="cancelar-recusar" class="botao botao--secundario" type="button">Cancelar</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialogo-modulo" class="dialogo">
+      <h2>Módulo em desenvolvimento</h2>
+      <p id="dialogo-modulo-texto">Este módulo será disponibilizado em uma próxima etapa.</p>
+      <button id="dialogo-modulo-fechar" class="botao botao--primario" type="button">Entendi</button>
+    </dialog>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/solicitacoes-reabertura.js"></script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nova Atividade — UNISOL RS Relatório de Atividades" />
+    <title>Nova Atividade — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/atividade.css" />
+  </head>
+  <body class="app-interno">
+    <a class="skip-link" href="#conteudo-atividade">Ir para o conteúdo</a>
+    <div id="menu-overlay" class="menu-overlay" hidden></div>
+
+    <div class="layout">
+      <aside id="menu-lateral" class="menu-lateral">
+        <div class="menu-lateral__marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+
+        <nav class="menu-lateral__nav" aria-label="Principal">
+          <ul id="menu-principal" class="menu-lateral__lista">
+            <li>
+              <a href="./dashboard.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="./nova-atividade.html" data-modulo="novaAtividade" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Nova Atividade
+              </a>
+            </li>
+            <li>
+              <a href="./historico.html" data-modulo="historico">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 7h8M8 12h8M8 17h5M5 4h14v16H5z" />
+                </svg>
+                Histórico de Atividades
+              </a>
+            </li>
+            <li>
+              <a href="./relatorio-mensal.html" data-modulo="relatorioMensal">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4h8l4 4v12H7zM15 4v4h4M9 13h6M9 17h4" />
+                </svg>
+                Relatório Mensal
+              </a>
+            </li>
+            <li id="item-reaberturas" hidden>
+              <a href="./solicitacoes-reabertura.html" data-modulo="solicitacoesReabertura">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5h8M8 9h8M8 13h5M6 3h12v18H6z" />
+                </svg>
+                Solicitações de Reabertura
+              </a>
+            </li>
+            <li id="item-usuarios" hidden>
+              <a href="./usuarios.html" data-modulo="usuarios">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M12 11a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 11zM17 11a3 3 0 1 0-1-5.8M21 19v-1a4 4 0 0 0-3-3.87" />
+                </svg>
+                Usuários
+              </a>
+            </li>
+            <li>
+              <a href="./meu-perfil.html" data-modulo="meuPerfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM5 20a7 7 0 0 1 14 0" />
+                </svg>
+                Meu Perfil
+              </a>
+            </li>
+            <li>
+              <button type="button" data-acao="sair">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 7V5H5v14h5v-2M10 12h9M16 9l3 3-3 3" />
+                </svg>
+                Sair
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="menu-lateral__perfil" aria-label="Usuário autenticado">
+          <p class="usuario-resumo__nome" data-campo="nome">—</p>
+          <p class="usuario-resumo__email" data-campo="email">—</p>
+          <p class="usuario-resumo__perfil" data-campo="perfil">—</p>
+          <button class="botao botao--texto" type="button" data-modulo="meuPerfil">Meu Perfil</button>
+        </section>
+      </aside>
+
+      <div class="layout__principal">
+        <header class="cabecalho">
+          <button
+            id="botao-menu"
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-lateral"
+          >
+            Menu
+          </button>
+
+          <div class="cabecalho__identidade">
+            <strong>UNISOL RS</strong>
+            <span>Relatório de Atividades</span>
+          </div>
+
+          <div class="cabecalho__acoes">
+            <div class="usuario-resumo">
+              <strong data-campo="nome">—</strong>
+              <span data-campo="perfil">—</span>
+            </div>
+            <span id="selo-perfil" class="selo"></span>
+            <button class="botao botao--secundario botao--compacto" type="button" data-acao="sair">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <main id="conteudo-atividade" class="conteudo">
+          <div id="aviso-configuracao" class="alerta alerta--aviso" hidden></div>
+          <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+          <div id="aviso-somente-leitura" class="alerta alerta--aviso" hidden></div>
+
+          <section class="saudacao">
+            <div>
+              <h1 id="titulo-pagina">Nova Atividade</h1>
+              <p>Registre as informações da atividade realizada.</p>
+            </div>
+          </section>
+
+          <form id="form-atividade" novalidate>
+            <section class="painel meta-atividade" aria-label="Dados da atividade">
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Responsável</span>
+                <strong id="responsavel-nome">—</strong>
+              </div>
+              <div class="campo">
+                <label for="data-atividade">Data da atividade</label>
+                <input id="data-atividade" name="data_atividade" type="date" required />
+              </div>
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Status</span>
+                <span id="status-atividade" class="status status--rascunho">Rascunho</span>
+              </div>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-introducao">
+              <h2 id="titulo-introducao">1. Introdução</h2>
+              <p class="campo-ajuda">Descreva os objetivos e metas relacionados à atividade.</p>
+              <div class="campo">
+                <label for="introducao">Introdução</label>
+                <textarea id="introducao" name="introducao" rows="8"></textarea>
+                <p id="contador-introducao" class="contador" aria-live="polite"></p>
+              </div>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-realizada">
+              <h2 id="titulo-realizada">2. Atividade realizada</h2>
+              <p class="campo-ajuda">
+                Qual foi o objetivo da atividade realizada? Descreva detalhadamente a ação
+                desenvolvida.
+              </p>
+              <div class="campo">
+                <label for="descricao">Descrição da atividade</label>
+                <textarea id="descricao" name="descricao" rows="10"></textarea>
+                <p id="contador-descricao" class="contador" aria-live="polite"></p>
+              </div>
+
+              <div id="registro-fotografico" class="registro-fotografico">
+                <div class="registro-fotografico__cabecalho">
+                  <h3>Registro Fotográfico</h3>
+                  <p>
+                    Adicione de 1 a 3 fotografias da atividade. Pelo menos uma fotografia é
+                    obrigatória para concluir.
+                  </p>
+                  <p class="campo-ajuda">
+                    Formatos permitidos: JPG, JPEG e PNG — máximo 5 MB por foto.
+                  </p>
+                  <p id="indicador-fotos" class="registro-fotografico__indicador">0 de 3 fotos</p>
+                </div>
+
+                <div id="lista-fotos" class="lista-fotos"></div>
+
+                <div class="registro-fotografico__acoes">
+                  <input
+                    id="input-fotos"
+                    type="file"
+                    accept="image/jpeg,image/png"
+                    multiple
+                    hidden
+                  />
+                  <button id="botao-adicionar-foto" class="botao botao--secundario" type="button">
+                    Adicionar foto
+                  </button>
+                  <p id="status-envio-foto" class="registro-fotografico__status" hidden>Enviando foto...</p>
+                  <p id="aviso-limite-fotos" class="registro-fotografico__limite" hidden>
+                    Limite de 3 fotografias atingido.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-conclusao">
+              <h2 id="titulo-conclusao">3. Conclusão / Encaminhamentos</h2>
+              <p class="campo-ajuda">
+                Descreva os resultados da atividade, encaminhamentos realizados e próximos passos.
+              </p>
+              <div class="campo">
+                <label for="conclusao">Conclusão</label>
+                <textarea id="conclusao" name="conclusao" rows="8"></textarea>
+                <p id="contador-conclusao" class="contador" aria-live="polite"></p>
+              </div>
+            </section>
+
+            <div class="acoes-atividade">
+              <div id="acoes-edicao">
+                <button id="botao-salvar" class="botao botao--secundario" type="submit">
+                  Salvar Rascunho
+                </button>
+                <button id="botao-concluir" class="botao botao--destaque" type="button">
+                  Concluir Atividade
+                </button>
+              </div>
+              <button id="botao-cancelar" class="botao botao--texto" type="button">Cancelar</button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="dialogo-modulo" class="dialogo">
+      <h2>Módulo em desenvolvimento</h2>
+      <p id="dialogo-modulo-texto">Este módulo será disponibilizado em uma próxima etapa.</p>
+      <button id="dialogo-modulo-fechar" class="botao botao--primario" type="button">Entendi</button>
+    </dialog>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/nova-atividade.js"></script>
+  </body>
+</html>

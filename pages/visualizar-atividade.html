@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Detalhes da Atividade — UNISOL RS Relatório de Atividades" />
+    <title>Detalhes da Atividade — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/atividade.css" />
+    <link rel="stylesheet" href="../css/historico.css" />
+    <link rel="stylesheet" href="../css/reabertura.css" />
+  </head>
+  <body class="app-interno">
+    <a class="skip-link" href="#conteudo-detalhe">Ir para o conteúdo</a>
+    <div id="menu-overlay" class="menu-overlay" hidden></div>
+
+    <div class="layout">
+      <aside id="menu-lateral" class="menu-lateral">
+        <div class="menu-lateral__marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+
+        <nav class="menu-lateral__nav" aria-label="Principal">
+          <ul id="menu-principal" class="menu-lateral__lista">
+            <li>
+              <a href="./dashboard.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="./nova-atividade.html" data-modulo="novaAtividade">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Nova Atividade
+              </a>
+            </li>
+            <li>
+              <a href="./historico.html" data-modulo="historico">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 7h8M8 12h8M8 17h5M5 4h14v16H5z" />
+                </svg>
+                Histórico de Atividades
+              </a>
+            </li>
+            <li>
+              <a href="./relatorio-mensal.html" data-modulo="relatorioMensal">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4h8l4 4v12H7zM15 4v4h4M9 13h6M9 17h4" />
+                </svg>
+                Relatório Mensal
+              </a>
+            </li>
+            <li id="item-reaberturas" hidden>
+              <a href="./solicitacoes-reabertura.html" data-modulo="solicitacoesReabertura">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5h8M8 9h8M8 13h5M6 3h12v18H6z" />
+                </svg>
+                Solicitações de Reabertura
+              </a>
+            </li>
+            <li id="item-usuarios" hidden>
+              <a href="./usuarios.html" data-modulo="usuarios">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M12 11a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 11zM17 11a3 3 0 1 0-1-5.8M21 19v-1a4 4 0 0 0-3-3.87" />
+                </svg>
+                Usuários
+              </a>
+            </li>
+            <li>
+              <a href="./meu-perfil.html" data-modulo="meuPerfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM5 20a7 7 0 0 1 14 0" />
+                </svg>
+                Meu Perfil
+              </a>
+            </li>
+            <li>
+              <button type="button" data-acao="sair">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 7V5H5v14h5v-2M10 12h9M16 9l3 3-3 3" />
+                </svg>
+                Sair
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="menu-lateral__perfil" aria-label="Usuário autenticado">
+          <p class="usuario-resumo__nome" data-campo="nome">—</p>
+          <p class="usuario-resumo__email" data-campo="email">—</p>
+          <p class="usuario-resumo__perfil" data-campo="perfil">—</p>
+          <button class="botao botao--texto" type="button" data-modulo="meuPerfil">Meu Perfil</button>
+        </section>
+      </aside>
+
+      <div class="layout__principal">
+        <header class="cabecalho">
+          <button
+            id="botao-menu"
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-lateral"
+          >
+            Menu
+          </button>
+
+          <div class="cabecalho__identidade">
+            <strong>UNISOL RS</strong>
+            <span>Relatório de Atividades</span>
+          </div>
+
+          <div class="cabecalho__acoes">
+            <div class="usuario-resumo">
+              <strong data-campo="nome">—</strong>
+              <span data-campo="perfil">—</span>
+            </div>
+            <span id="selo-perfil" class="selo"></span>
+            <button class="botao botao--secundario botao--compacto" type="button" data-acao="sair">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <main id="conteudo-detalhe" class="conteudo">
+          <div id="aviso-configuracao" class="alerta alerta--aviso" hidden></div>
+          <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+          <article id="detalhe-atividade" hidden>
+            <section class="saudacao">
+              <div>
+                <h1>Detalhes da Atividade</h1>
+                <p>Leitura completa da atividade selecionada.</p>
+              </div>
+            </section>
+
+            <div id="aviso-cancelada" class="alerta alerta--aviso" hidden>
+              Esta atividade foi cancelada administrativamente e está disponível somente para consulta.
+            </div>
+
+            <section class="painel meta-atividade meta-detalhe" aria-label="Dados da atividade">
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Mobilizador</span>
+                <strong id="detalhe-mobilizador">—</strong>
+              </div>
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Data da atividade</span>
+                <strong id="detalhe-data">—</strong>
+              </div>
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Situação</span>
+                <span id="detalhe-status" class="status">—</span>
+                <p id="detalhe-situacao-complemento" class="campo-ajuda" hidden></p>
+              </div>
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Data de criação</span>
+                <strong id="detalhe-criacao">—</strong>
+              </div>
+              <div class="meta-atividade__item">
+                <span class="meta-atividade__rotulo">Última atualização</span>
+                <strong id="detalhe-atualizacao">—</strong>
+              </div>
+            </section>
+
+            <section id="secao-cancelamento" class="painel" aria-labelledby="titulo-cancelamento" hidden>
+              <h2 id="titulo-cancelamento">Informações do Cancelamento</h2>
+              <dl class="dados-cancelamento">
+                <div>
+                  <dt>Cancelada por</dt>
+                  <dd id="cancelada-por">—</dd>
+                </div>
+                <div>
+                  <dt>Data</dt>
+                  <dd id="cancelada-em">—</dd>
+                </div>
+                <div class="dados-cancelamento__motivo">
+                  <dt>Motivo</dt>
+                  <dd id="cancelada-motivo">—</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-introducao">
+              <h2 id="titulo-introducao">1. Introdução</h2>
+              <p id="detalhe-introducao" class="texto-preservado"></p>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-realizada">
+              <h2 id="titulo-realizada">2. Atividade realizada</h2>
+              <p id="detalhe-descricao" class="texto-preservado"></p>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-conclusao">
+              <h2 id="titulo-conclusao">3. Conclusão / Encaminhamentos</h2>
+              <p id="detalhe-conclusao" class="texto-preservado"></p>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-fotos">
+              <h2 id="titulo-fotos">Registro Fotográfico</h2>
+              <div id="galeria-fotos" class="galeria-fotos"></div>
+              <p id="fotos-vazias" class="campo-ajuda" hidden>Nenhuma fotografia registrada.</p>
+            </section>
+
+            <section class="painel" aria-labelledby="titulo-reaberturas">
+              <h2 id="titulo-reaberturas">Solicitações de Reabertura</h2>
+              <div id="lista-reaberturas" class="lista-reaberturas"></div>
+              <p id="reaberturas-vazias" class="campo-ajuda">Nenhuma solicitação registrada para esta atividade.</p>
+            </section>
+
+            <section id="secao-auditoria" class="painel" aria-labelledby="titulo-auditoria" hidden>
+              <h2 id="titulo-auditoria">Auditoria</h2>
+              <div id="lista-auditoria" class="lista-auditoria"></div>
+              <p id="auditoria-vazia" class="campo-ajuda" hidden>Nenhum evento de auditoria para esta atividade.</p>
+            </section>
+
+            <div class="acoes-atividade">
+              <a id="botao-editar" class="botao botao--destaque" hidden>Editar Atividade</a>
+              <button id="botao-relatorio-word" class="botao botao--secundario" type="button">
+                Gerar Relatório Word
+              </button>
+              <button id="botao-cancelar-atividade" class="botao botao--perigo" type="button" hidden>
+                Cancelar Atividade
+              </button>
+              <button id="botao-solicitar-reabertura" class="botao botao--destaque" type="button" hidden>
+                Solicitar Reabertura
+              </button>
+              <p id="status-reabertura" class="status-reabertura" hidden>
+                Reabertura solicitada — aguardando análise
+              </p>
+              <a id="botao-voltar" class="botao botao--secundario" href="./historico.html">
+                Voltar ao Histórico
+              </a>
+            </div>
+          </article>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="dialogo-cancelar" class="dialogo dialogo-reabertura" aria-labelledby="titulo-cancelar">
+      <h2 id="titulo-cancelar">Cancelar atividade</h2>
+      <p>
+        Esta ação encerrará administrativamente a atividade. O registro, as fotografias e o
+        histórico serão preservados.
+      </p>
+      <dl class="resumo-cancelamento">
+        <div>
+          <dt>Mobilizador</dt>
+          <dd id="cancelar-mobilizador">—</dd>
+        </div>
+        <div>
+          <dt>Data</dt>
+          <dd id="cancelar-data">—</dd>
+        </div>
+        <div>
+          <dt>Status atual</dt>
+          <dd id="cancelar-status">—</dd>
+        </div>
+        <div>
+          <dt>Resumo</dt>
+          <dd id="cancelar-resumo">—</dd>
+        </div>
+      </dl>
+      <div class="campo">
+        <label for="motivo-cancelamento">Motivo do cancelamento</label>
+        <textarea id="motivo-cancelamento" rows="6" maxlength="1000"></textarea>
+        <p id="contador-cancelamento" class="contador contador--falta">0 / 50 caracteres mínimos</p>
+      </div>
+      <label class="confirmacao-cancelamento">
+        <input id="confirmar-cancelamento" type="checkbox" />
+        Confirmo o cancelamento desta atividade.
+      </label>
+      <div class="filtros__acoes">
+        <button id="enviar-cancelamento" class="botao botao--perigo" type="button" disabled>
+          Confirmar Cancelamento
+        </button>
+        <button id="fechar-cancelamento" class="botao botao--secundario" type="button">Voltar</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialogo-solicitar" class="dialogo dialogo-reabertura" aria-labelledby="titulo-solicitar">
+      <h2 id="titulo-solicitar">Solicitar reabertura da atividade</h2>
+      <p>
+        Informe detalhadamente o motivo da reabertura. O motivo deve possuir pelo menos 50
+        caracteres. A atividade permanecerá concluída até que um administrador analise a
+        solicitação.
+      </p>
+      <div class="campo">
+        <label for="motivo-reabertura">Motivo da solicitação</label>
+        <textarea id="motivo-reabertura" rows="6" maxlength="1000"></textarea>
+        <p id="contador-motivo" class="contador contador--falta">0 / 50 caracteres mínimos</p>
+      </div>
+      <div class="filtros__acoes">
+        <button id="enviar-solicitacao" class="botao botao--destaque" type="button">
+          Enviar Solicitação
+        </button>
+        <button id="cancelar-solicitacao" class="botao botao--secundario" type="button">Cancelar</button>
+      </div>
+    </dialog>
+
+    <dialog id="dialogo-foto" class="dialogo dialogo-foto" aria-labelledby="titulo-foto-ampliada">
+      <div class="dialogo-foto__cabecalho">
+        <h2 id="titulo-foto-ampliada">Fotografia</h2>
+        <button id="fechar-foto" class="botao botao--secundario" type="button">Fechar</button>
+      </div>
+      <img id="foto-ampliada" alt="" />
+      <p id="legenda-ampliada" class="dialogo-foto__legenda" hidden></p>
+    </dialog>
+
+    <dialog id="dialogo-modulo" class="dialogo">
+      <h2>Módulo em desenvolvimento</h2>
+      <p id="dialogo-modulo-texto">Este módulo será disponibilizado em uma próxima etapa.</p>
+      <button id="dialogo-modulo-fechar" class="botao botao--primario" type="button">Entendi</button>
+    </dialog>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/visualizar-atividade.js"></script>
+  </body>
+</html>

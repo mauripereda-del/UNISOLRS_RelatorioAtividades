@@ -3,8 +3,13 @@
   "private": true,
   "description": "UNISOL RS — Relatório de Atividades",
   "scripts": {
-    "dev": "npx --yes serve -l 5500",
+    "dev": "npx --yes serve -l 5500 --no-port-switching",
     "build": "node scripts/gerar-env.js",
+    "predeploy-check": "node scripts/predeploy-check.js",
+    "vendor:docx": "node scripts/atualizar-vendor-docx.js",
     "start": "npx --yes serve -l 5500"
+  },
+  "dependencies": {
+    "docx": "^9.7.2"
   }
 }

@@ -1,0 +1,97 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--fonte-base);
+  font-size: var(--tamanho-texto);
+  line-height: var(--altura-linha);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--foco);
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 20;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--raio-sm);
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.app-auth {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: var(--espaco-lg);
+  background:
+    linear-gradient(180deg, rgba(27, 77, 110, 0.08), transparent 38%),
+    var(--cor-fundo);
+}
+
+.app-interno {
+  min-height: 100vh;
+}
+
+body.app-interno:not(.app-pronto) .layout {
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marca__logo {
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 3rem;
+  object-fit: contain;
+}
+
+.marca__nome {
+  font-size: 1.05rem;
+  font-weight: var(--peso-forte);
+  color: var(--cor-primaria);
+  line-height: 1.2;
+}
+
+.marca__subtitulo {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+}
+
+.rodape-auth {
+  margin-top: var(--espaco-lg);
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Redefinir senha — UNISOL RS Relatório de Atividades" />
+    <title>Redefinir senha — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body class="app-auth">
+    <a class="skip-link" href="#conteudo-redefinir">Ir para o conteúdo</a>
+
+    <main id="conteudo-redefinir" class="cartao">
+      <header class="cartao__cabecalho">
+        <div class="marca login-marca">
+          <img
+            class="marca__logo"
+            src="../assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+        <h1 class="cartao__titulo">Redefinir senha</h1>
+        <p class="cartao__descricao">
+          Defina uma nova senha para a sua conta. Use no mínimo 8 caracteres.
+        </p>
+      </header>
+
+      <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+      <form id="form-redefinir" novalidate>
+        <div class="campo">
+          <label for="nova-senha">Nova senha</label>
+          <div class="campo__controle">
+            <input
+              id="nova-senha"
+              name="nova-senha"
+              type="password"
+              autocomplete="new-password"
+              required
+              minlength="8"
+            />
+            <button
+              id="alternar-nova-senha"
+              class="botao-senha"
+              type="button"
+              aria-pressed="false"
+              aria-controls="nova-senha"
+            >
+              Mostrar
+            </button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="confirmar-senha">Confirmar nova senha</label>
+          <div class="campo__controle">
+            <input
+              id="confirmar-senha"
+              name="confirmar-senha"
+              type="password"
+              autocomplete="new-password"
+              required
+              minlength="8"
+            />
+            <button
+              id="alternar-confirmacao"
+              class="botao-senha"
+              type="button"
+              aria-pressed="false"
+              aria-controls="confirmar-senha"
+            >
+              Mostrar
+            </button>
+          </div>
+        </div>
+
+        <div class="acoes-formulario">
+          <button id="botao-salvar" class="botao botao--primario" type="submit">
+            Salvar nova senha
+          </button>
+          <div class="login-links">
+            <a class="botao botao--texto" href="../index.html">Voltar para o login</a>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script src="../js/env.js"></script>
+    <script type="module" src="../js/redefinir-senha.js"></script>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+.campo-ajuda {
+  margin: 0.35rem 0 1rem;
+  color: var(--cor-texto-suave);
+}
+
+.campo textarea {
+  width: 100%;
+  min-height: 10rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  background: #fff;
+  resize: vertical;
+}
+
+.campo textarea:focus {
+  border-color: var(--cor-primaria);
+}
+
+.formulario--somente-leitura textarea,
+.formulario--somente-leitura input[type="date"] {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.meta-atividade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espaco-lg);
+  align-items: end;
+}
+
+.meta-atividade__item {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.meta-atividade__rotulo {
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.contador {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.contador--falta {
+  color: var(--cor-aviso);
+}
+
+.contador--ok {
+  color: var(--cor-sucesso);
+}
+
+.registro-fotografico {
+  margin-top: var(--espaco-lg);
+  padding: 1.15rem 1.2rem;
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-md);
+  background: var(--cor-fundo);
+}
+
+.registro-fotografico--arraste {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria-clara);
+}
+
+.registro-fotografico__cabecalho h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.registro-fotografico__cabecalho p {
+  color: var(--cor-texto-suave);
+  margin-bottom: 0.5rem;
+}
+
+.registro-fotografico__indicador {
+  margin: 0.75rem 0 0;
+  font-weight: var(--peso-medio);
+  color: var(--cor-texto);
+}
+
+.lista-fotos {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cartao-foto {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.85rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  background: var(--cor-superficie);
+}
+
+.cartao-foto__miniatura {
+  display: grid;
+  place-items: center;
+  width: 7.5rem;
+  height: 7.5rem;
+  overflow: hidden;
+  border-radius: var(--raio-sm);
+  background: var(--cor-primaria-clara);
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+}
+
+.cartao-foto__miniatura img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cartao-foto__corpo {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.cartao-foto__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.cartao-foto__nome {
+  font-weight: var(--peso-medio);
+  color: var(--cor-texto);
+  overflow-wrap: anywhere;
+}
+
+.cartao-foto__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.cartao-foto .campo {
+  margin-bottom: 0;
+}
+
+.cartao-foto textarea {
+  min-height: 4.25rem;
+}
+
+.registro-fotografico__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.registro-fotografico__acoes .botao--secundario {
+  width: auto;
+}
+
+.registro-fotografico__status,
+.registro-fotografico__limite {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--cor-aviso);
+}
+
+.acoes-atividade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.25rem 0 1.5rem;
+}
+
+.acoes-atividade #acoes-edicao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.acoes-atividade .botao--secundario,
+.acoes-atividade .botao--destaque,
+.acoes-atividade .botao--perigo {
+  width: auto;
+  min-width: 10.5rem;
+}
+
+@media (max-width: 900px) {
+  .meta-atividade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .acoes-atividade,
+  .acoes-atividade #acoes-edicao {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .acoes-atividade .botao--secundario,
+  .acoes-atividade .botao--destaque,
+  .acoes-atividade .botao--perigo,
+  .acoes-atividade .botao--texto {
+    width: 100%;
+    min-height: 2.85rem;
+  }
+
+  .campo textarea {
+    min-height: 12rem;
+  }
+
+  .cartao-foto {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao-foto__miniatura {
+    width: 100%;
+    height: 11rem;
+  }
+
+  .registro-fotografico__acoes .botao--secundario {
+    width: 100%;
+  }
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Administração de Usuários — UNISOL RS Relatório de Atividades" />
+    <title>Administração de Usuários — UNISOL RS Relatório de Atividades</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/historico.css" />
+    <link rel="stylesheet" href="/css/usuarios.css" />
+  </head>
+  <body class="app-interno pagina-usuarios">
+    <a class="skip-link" href="#conteudo-usuarios">Ir para o conteúdo</a>
+    <div id="menu-overlay" class="menu-overlay" hidden></div>
+
+    <div class="layout">
+      <aside id="menu-lateral" class="menu-lateral">
+        <div class="menu-lateral__marca">
+          <img
+            class="marca__logo"
+            src="/assets/images/logounisol.png"
+            alt="UNISOL RS"
+            width="48"
+            height="48"
+          />
+          <div>
+            <span class="marca__nome">UNISOL RS</span>
+            <span class="marca__subtitulo">Relatório de Atividades</span>
+          </div>
+        </div>
+
+        <nav class="menu-lateral__nav" aria-label="Principal">
+          <ul id="menu-principal" class="menu-lateral__lista">
+            <li>
+              <a href="./dashboard.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="./nova-atividade.html" data-modulo="novaAtividade">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+                Nova Atividade
+              </a>
+            </li>
+            <li>
+              <a href="./historico.html" data-modulo="historico">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 7h8M8 12h8M8 17h5M5 4h14v16H5z" />
+                </svg>
+                Histórico de Atividades
+              </a>
+            </li>
+            <li>
+              <a href="./relatorio-mensal.html" data-modulo="relatorioMensal">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4h8l4 4v12H7zM15 4v4h4M9 13h6M9 17h4" />
+                </svg>
+                Relatório Mensal
+              </a>
+            </li>
+            <li id="item-reaberturas" hidden>
+              <a href="./solicitacoes-reabertura.html" data-modulo="solicitacoesReabertura">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5h8M8 9h8M8 13h5M6 3h12v18H6z" />
+                </svg>
+                Solicitações de Reabertura
+              </a>
+            </li>
+            <li id="item-usuarios">
+              <a href="./usuarios.html" data-modulo="usuarios" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M12 11a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 11zM17 11a3 3 0 1 0-1-5.8M21 19v-1a4 4 0 0 0-3-3.87" />
+                </svg>
+                Usuários
+              </a>
+            </li>
+            <li>
+              <a href="./meu-perfil.html" data-modulo="meuPerfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM5 20a7 7 0 0 1 14 0" />
+                </svg>
+                Meu Perfil
+              </a>
+            </li>
+            <li>
+              <button type="button" data-acao="sair">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 7V5H5v14h5v-2M10 12h9M16 9l3 3-3 3" />
+                </svg>
+                Sair
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="menu-lateral__perfil" aria-label="Usuário autenticado">
+          <p class="usuario-resumo__nome" data-campo="nome">—</p>
+          <p class="usuario-resumo__email" data-campo="email">—</p>
+          <p class="usuario-resumo__perfil" data-campo="perfil">—</p>
+          <button class="botao botao--texto" type="button" data-modulo="meuPerfil">Meu Perfil</button>
+        </section>
+      </aside>
+
+      <div class="layout__principal">
+        <header class="cabecalho">
+          <button
+            id="botao-menu"
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu-lateral"
+          >
+            Menu
+          </button>
+          <div class="cabecalho__identidade">
+            <strong>UNISOL RS</strong>
+            <span>Relatório de Atividades</span>
+          </div>
+          <div class="cabecalho__acoes">
+            <div class="usuario-resumo">
+              <strong data-campo="nome">—</strong>
+              <span data-campo="perfil">—</span>
+            </div>
+            <span id="selo-perfil" class="selo"></span>
+            <button class="botao botao--secundario botao--compacto" type="button" data-acao="sair">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <main id="conteudo-usuarios" class="conteudo">
+          <div id="aviso-configuracao" class="alerta alerta--aviso" hidden></div>
+          <div id="alerta" class="alerta" hidden role="status" aria-live="polite"></div>
+
+          <section class="saudacao">
+            <div>
+              <h1>Administração de Usuários</h1>
+              <p>Gerencie os usuários autorizados a acessar o sistema UNISOL RS.</p>
+            </div>
+            <button id="botao-novo" class="botao botao--destaque" type="button">+ Novo Usuário</button>
+          </section>
+
+          <form id="form-filtros" class="painel filtros" aria-labelledby="titulo-filtros">
+            <h2 id="titulo-filtros">Filtros</h2>
+            <div class="filtros__grade">
+              <div class="campo campo--busca">
+                <label for="filtro-busca">Busca</label>
+                <input
+                  id="filtro-busca"
+                  name="busca"
+                  type="search"
+                  maxlength="80"
+                  placeholder="Nome ou e-mail"
+                />
+              </div>
+              <div class="campo">
+                <label for="filtro-perfil">Perfil</label>
+                <select id="filtro-perfil" name="perfil">
+                  <option value="">Todos</option>
+                  <option value="ADMIN">Administrador</option>
+                  <option value="MOBILIZADOR">Mobilizador</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="filtro-status">Status</label>
+                <select id="filtro-status" name="status">
+                  <option value="">Todos</option>
+                  <option value="ATIVO">Ativo</option>
+                  <option value="INATIVO">Inativo</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="filtro-ordenacao">Ordenação</label>
+                <select id="filtro-ordenacao" name="ordenacao">
+                  <option value="nome">Nome A–Z</option>
+                  <option value="nome_desc">Nome Z–A</option>
+                  <option value="recentes">Mais recentes</option>
+                  <option value="atualizados">Atualizados recentemente</option>
+                </select>
+              </div>
+            </div>
+            <div class="filtros__acoes">
+              <button class="botao botao--primario" type="submit">Filtrar</button>
+              <button id="botao-limpar" class="botao botao--secundario" type="button">Limpar filtros</button>
+            </div>
+          </form>
+
+          <section class="painel" aria-labelledby="titulo-resultados">
+            <div class="painel__cabecalho historico-cabecalho">
+              <h2 id="titulo-resultados">Usuários</h2>
+              <p id="resumo-pagina" class="historico-resumo" aria-live="polite"></p>
+            </div>
+            <p id="carregando-usuarios" class="historico-carregando" hidden>Carregando usuários...</p>
+            <div id="usuarios-vazio" class="estado-vazio" hidden>
+              <p><strong>Nenhum usuário encontrado.</strong></p>
+              <p>Altere os filtros ou cadastre um novo usuário.</p>
+            </div>
+            <div id="tabela-usuarios-envoltorio" class="tabela-envoltorio historico-tabela" hidden>
+              <table class="tabela-usuarios">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Perfil</th>
+                    <th>Status</th>
+                    <th>Atividades</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="corpo-usuarios"></tbody>
+              </table>
+            </div>
+            <div id="cards-usuarios" class="historico-cards" hidden></div>
+            <div id="paginacao" class="paginacao" hidden>
+              <button id="pagina-anterior" class="botao botao--secundario" type="button">Anterior</button>
+              <button id="pagina-proxima" class="botao botao--secundario" type="button">Próxima</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="dialogo-usuario" class="dialogo dialogo--form">
+      <h2 id="titulo-dialogo-usuario">Novo usuário</h2>
+      <p id="texto-dialogo-usuario">Preencha os dados cadastrais. O usuário definirá a própria senha.</p>
+      <form id="form-usuario">
+        <input id="usuario-id" type="hidden" />
+        <input id="usuario-updated-at" type="hidden" />
+        <div class="campo">
+          <label for="usuario-nome">Nome completo</label>
+          <input id="usuario-nome" name="nome" type="text" maxlength="150" required />
+        </div>
+        <div class="campo">
+          <label for="usuario-email">E-mail</label>
+          <input id="usuario-email" name="email" type="email" required />
+        </div>
+        <div class="campo">
+          <label for="usuario-telefone">Telefone</label>
+          <input id="usuario-telefone" name="telefone" type="tel" maxlength="20" placeholder="(51) 99999-9999" />
+        </div>
+        <div class="campo">
+          <label for="usuario-perfil">Perfil</label>
+          <select id="usuario-perfil" name="perfil" required>
+            <option value="MOBILIZADOR">Mobilizador</option>
+            <option value="ADMIN">Administrador</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="usuario-status">Status</label>
+          <select id="usuario-status" name="status" required>
+            <option value="ATIVO">Ativo</option>
+            <option value="INATIVO">Inativo</option>
+          </select>
+        </div>
+        <div class="dialogo__acoes">
+          <button id="botao-salvar-usuario" class="botao botao--primario" type="submit">Salvar</button>
+          <button id="botao-cancelar-usuario" class="botao botao--secundario" type="button">Cancelar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="dialogo-confirmacao" class="dialogo">
+      <h2 id="titulo-confirmacao">Confirmar ação</h2>
+      <p id="texto-confirmacao"></p>
+      <div class="dialogo__acoes">
+        <button id="botao-confirmar-acao" class="botao botao--perigo" type="button">Confirmar</button>
+        <button id="botao-cancelar-confirmacao" class="botao botao--secundario" type="button">Cancelar</button>
+      </div>
+    </dialog>
+
+    <script src="/js/env.js"></script>
+    <script type="module" src="/js/usuarios.js"></script>
+  </body>
+</html>

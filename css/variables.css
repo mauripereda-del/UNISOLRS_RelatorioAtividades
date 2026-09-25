@@ -1,0 +1,45 @@
+:root {
+  --cor-primaria: #1b4d6e;
+  --cor-primaria-escura: #12364d;
+  --cor-primaria-clara: #e7eef3;
+  --cor-destaque: #2e7d4f;
+  --cor-destaque-escura: #24663f;
+  --cor-fundo: #f4f6f8;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1a2332;
+  --cor-texto-suave: #5c6b7a;
+  --cor-borda: #d5dde5;
+  --cor-erro: #b42318;
+  --cor-erro-fundo: #fef3f2;
+  --cor-sucesso: #027a48;
+  --cor-sucesso-fundo: #edfcf2;
+  --cor-aviso: #b54708;
+  --cor-aviso-fundo: #fffaeb;
+
+  --fonte-base: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --tamanho-texto: 1rem;
+  --altura-linha: 1.5;
+  --peso-medio: 600;
+  --peso-forte: 700;
+
+  --espaco-xs: 0.25rem;
+  --espaco-sm: 0.5rem;
+  --espaco-md: 1rem;
+  --espaco-lg: 1.5rem;
+  --espaco-xl: 2rem;
+  --espaco-2xl: 3rem;
+
+  --raio-sm: 6px;
+  --raio-md: 10px;
+  --raio-lg: 16px;
+
+  --sombra-suave: 0 8px 24px rgba(27, 77, 110, 0.08);
+  --sombra-media: 0 12px 32px rgba(18, 54, 77, 0.12);
+
+  --largura-login: 26rem;
+  --largura-conteudo: 72rem;
+  --largura-menu: 17.5rem;
+  --altura-cabecalho: 4.25rem;
+
+  --foco: 0 0 0 3px rgba(27, 77, 110, 0.28);
+}
